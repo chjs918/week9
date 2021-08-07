@@ -11,7 +11,6 @@ def newMessage(request):
             comment = form.save(commit = False)
             comment.created_at = timezone.now()
             comment.save()
-            #return redirect('detailMessage', id)
         return redirect('messageList')
     else: 
         form = UsercontactForm()
