@@ -1,0 +1,35 @@
+{% extends 'base.html' %}  
+{% load static %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    .title1 {
+        font-family: 'Black Han Sans', sans-serif;
+        color:brown;
+    }
+</style>
+
+<body>
+    <h1 class="title1">메일 보내기</h1>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <div>Mail Address</div>
+                <input type="text" name="address">
+            </div>
+            <div>
+                <div>Title</div>
+                <input type="text" name="title">
+            </div>
+            <div>
+                <div>Content</div>
+                <textarea name="content"></textarea>
+            </div>
+            <div>
+                <button type="submit">Send Mail</button>
+            </div>
+        </form>
+    </div>
+</body>
+{% endblock %}

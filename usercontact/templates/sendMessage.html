@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    .title1 {
+        font-family: 'Black Han Sans', sans-serif;
+        color:brown;
+    }
+
+    .card {
+        border: 5px solid brown;
+        font-family: 'Black Han Sans', sans-serif;
+    }
+
+    h6 {
+        color:lightgray;
+    }
+   
+</style>
+<div class="title1">
+        <h2>내가 보낸 쪽지</h2>
+</div>
+    <hr>
+    <div class="col">
+    {% for post in posts %}
+    <div class="card">
+        <h2>{{post.title}}</h2>
+        <hr>
+        <h6>{{post.created_at}}</h6>
+        <h4>받는사람 : {{post.fromID}}</h4>
+        <h4>{{post.content}}</h4>
+    </div>
+    {% endfor %}
+   
+    </div>
+
+
+{% endblock %}

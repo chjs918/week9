@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    .title1 {
+        font-family: 'Black Han Sans', sans-serif;
+        color:brown;
+    }
+
+</style>
+<div>
+    <div>
+        <h1 class="title1">새 쪽지 쓰기</h1>
+    </div>
+
+    <form action="{%url 'newMessage'%}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form.as_p}}
+        <br>
+        <button type="submit">submit</button>
+    </form>
+</div>
+
+{% endblock %}

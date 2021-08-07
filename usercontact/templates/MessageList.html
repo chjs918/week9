@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    .title1 {
+        font-family: 'Black Han Sans', sans-serif;
+        color:brown;
+    }
+    .card {
+        border: 5px solid brown;
+        font-family: 'Black Han Sans', sans-serif;
+    }
+
+    h6 {
+        color:lightgray;
+    }
+   
+</style>
+<h1 class="title1">MY Message</p>
+</div>
+<hr>
+<div class="col">
+    {% for post in posts %}
+    <div class="card">
+    <h2>{{post.title}}</h2>
+    <hr>
+    <h6>{{post.created_at}}</h6>
+    <h4>보낸사람 : {{post.toID}}</h4>
+    <h4>{{post.content}}</h4>
+    </div>
+{% endfor %}
+</div>
+<a href="{% url 'newMessage' %}">새 쪽지 쓰기</a>
+<a href="{% url 'sendMessage' %}">내가 보낸 쪽지</a>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    .title1 {
+        font-family: 'Black Han Sans', sans-serif;
+        color:brown;
+    }
+</style>
+<h1 class=title1>{{article.title}}</h1>
+<div class = "d1">
+    {{article.writer}}
+<hr>
+{{article.score}}
+</div>
+<hr>
+{% if article.img %}
+<p><img src="{{article.img.url}}" alt=""></p>
+{% endif %}
+<h6>{{article.content}}</h6>
+<a href ="{% url 'edit' article.id %}">수정하기</a>
+<a href ="{% url 'delete' article.id %}">삭제하기</a>
+
+<br>
+{% endblock %}
